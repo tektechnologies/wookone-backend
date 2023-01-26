@@ -1,5 +1,6 @@
 'use strict';
 console.log('server file logging');
+console.log('I am a CONSOLE LOG I LIVE HERE IN THE TERMINAL');
 
 // requires
 const express = require('express');
@@ -7,7 +8,7 @@ const express = require('express');
 const app = express();
 
 
-const PORT = process.env.PORT;
+const PORT = process.env.PORT || 5005;
 
 
 
@@ -15,3 +16,4 @@ const PORT = process.env.PORT;
 // endpoints
 // error handling
 // server start
+app.listen(PORT, () => console.log(`PORT RUN: ${PORT}`));
