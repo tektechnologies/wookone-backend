@@ -6,7 +6,7 @@ console.log('I am a CONSOLE LOG I LIVE HERE IN THE TERMINAL');
 const express = require('express');
 //app is my server
 const app = express();
-
+require('dotenv').config();
 
 const PORT = process.env.PORT || 5005;
 
