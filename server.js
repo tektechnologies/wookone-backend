@@ -12,9 +12,9 @@ const PORT = process.env.PORT || 5005;
 
 // endpoints
 //base end point
-app.get('/', (request, response) => {
+app.get('/weather', (request, response) => {
   console.log('hello from home');
-  response.status(200).send('welcome to my server!');
+  response.status(200).send('hello tonight');
 
 });
 
