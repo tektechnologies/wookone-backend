@@ -1,25 +1,36 @@
 'use strict';
 console.log('server file logging');
 
-// requires
 const express = require('express');
-//app is my server
 const app = express();
 require('dotenv').config();
-
+const weather = require('./modules/weather.js');
 const PORT = process.env.PORT || 5005;
+const cors = require('cors');
 
 
-// endpoints
-//base end point
-app.get('/weather', (request, response) => {
-  console.log('hello from home');
-  response.status(200).send('hello tonight');
-
-});
+app.use(cors());
 
 
 
-// error handling
-// server start
+
+
+app.get('/weather', getWeather);
+
+function getWeather(request,response) {
+  // console.log('!!!!!!!!!! ',request.query);
+  const { lat, lon } = request.query;
+  // console.log(lat,lon);
+  weather(lat, lon)
+    .then(summaries => response.status(200).send(summaries))
+    .catch((error) => {
+      console.error(error);
+      response.status(200).send('Sorry. Something went wrong!');
+    });
+}
+
+
+
+
+
 app.listen(PORT, () => console.log(`PORT RUN: ${PORT}`));
