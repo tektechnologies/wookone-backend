@@ -5,7 +5,7 @@ require('dotenv').config();
 // let cache = require('./cache.js');
 
 async function getMovie() {
-
+  // MOVIE_API_KEY
 }
 
 function parseMovie(movieData) {
