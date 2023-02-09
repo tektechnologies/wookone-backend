@@ -12,6 +12,7 @@ const PORT = process.env.PORT || 5005;
 app.get('/weather', getWeather);
 
 function getWeather(request, response) {
+  console.log(request.query);
   const { lat, lon } = request.query;
   weather(lat, lon)
     .then(summaries => response.status(200).send(summaries))
