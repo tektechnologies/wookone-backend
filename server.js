@@ -36,8 +36,12 @@ function getWeather(request,response) {
 function getMovies(request, response){
   console.log('request object',request.query.searchQuery);
   const location =request.query.searchQuery;
-  movies(location);
-  response.send('ok');
+  movies(location).then(movieList => response.status(200).send(movieList))
+    .catch(error => {
+      console.error(error);
+      response.status(500).send('OPPS! 500' + error.message);
+    });
+
 }
 
 
