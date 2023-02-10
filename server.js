@@ -5,6 +5,7 @@ const express = require('express');
 const app = express();
 require('dotenv').config();
 const weather = require('./modules/weather.js');
+const movies = require('./modules/movies');
 // const movies = require('./modules/movies');
 const PORT = process.env.PORT || 5005;
 const cors = require('cors');
@@ -34,7 +35,8 @@ function getWeather(request,response) {
 
 function getMovies(request, response){
   console.log('request object',request.query.searchQuery);
-
+  const location =request.query.searchQuery;
+  movies(location);
   response.send('ok');
 }
 
