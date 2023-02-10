@@ -33,7 +33,7 @@ function getWeather(request,response) {
 
 
 function getMovies(request, response){
-  console.log('request object',request);
+  console.log('request object',request.query.searchQuery);
 
   response.send('ok');
 }

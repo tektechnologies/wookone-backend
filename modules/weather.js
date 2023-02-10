@@ -5,7 +5,7 @@ require('dotenv').config();
 let cache = require('./cache.js');
 
 async function getWeather(latitude, longitude) {
-  console.log(latitude,longitude, 'WWWWWWWWWWWWWWWWw');
+  // console.log(latitude,longitude, 'WWWWWWWWWWWWWWWWw');
   const key = 'weather-' + latitude + longitude;
   const url = `http://api.weatherapi.com/v1/forecast.json?key=${process.env.WEATHER_API_KEY}&days=5&aqi=no&alerts=no&q=${latitude},${longitude}`;
 
