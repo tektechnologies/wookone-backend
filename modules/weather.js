@@ -10,9 +10,9 @@ async function getWeather(latitude, longitude) {
   const url = `http://api.weatherapi.com/v1/forecast.json?key=${process.env.WEATHER_API_KEY}&days=5&aqi=no&alerts=no&q=${latitude},${longitude}`;
 
   if (cache[key] && (Date.now() - cache[key].timestamp < 50000)) {
-    console.log('Cache hit');
+    // console.log('Cache hit');
   } else {
-    console.log('Cache miss');
+    // console.log('Cache miss');
     cache[key] = {};
     cache[key].timestamp = Date.now();
     cache[key].data = await axios.get(url)

@@ -5,7 +5,7 @@ require('dotenv').config();
 let cache = require('./cache.js');
 
 async function getMovie(location) {
-  console.log('GET MOVIES', location);
+  // console.log('GET MOVIES', location);
   const key = 'movies-' + location;
   const url = `https://api.themoviedb.org/3/search/movie?api_key=${process.env.MOVIE_API_KEY}&query=${location}`;
 
@@ -14,6 +14,7 @@ async function getMovie(location) {
     cache[key].timestamp = Date.now();
     cache[key].data = axios.get(url).then((data) => parseMovie(data.data));
   }
+  // console.log('returning cache?', cache[key]);
   return cache[key].data;
 }
 
