@@ -40,12 +40,13 @@ function getMovies(request, response) {
 
 
 function yelpHandler(request, response) {
+
   const location = request.query.searchQuery;
   yelp(location, request.query.page)
     .then(reviews => response.send(reviews))
     .catch((error) => {
       console.error(error);
-      response.status(500).send('Sorry. Something went wrong!')
+      response.status(500).send('Sorry. Something went wrong!');
     });
 }
 
